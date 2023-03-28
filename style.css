@@ -11,6 +11,8 @@
   --tag-yellow: #e9e0aa;
   --tag-purple: #d9b2e9;
   --tooltip-size: 30px;
+
+  --breakpoint-tablet: 768px;
 }
 
 * {
@@ -29,13 +31,40 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 20px;
+}
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: url(./images/profile2.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.backdrop-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
 }
 
 .profile-card {
   display: flex;
   position: relative;
+  z-index: 100;
   justify-content: center;
-  width: max(100% - 2em, 360px);
+  width: min(100%, 760px);
+  max-width: 1440px;
   aspect-ratio: 1.4/1;
   border-radius: 20px;
   overflow: hidden;
@@ -62,29 +91,44 @@ html {
   right: -67px;
   top: auto;
   bottom: 0;
+  z-index: -1;
+}
+
+.img-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  /* contain으로 할 지 cover로 할 지 유저가 custom할 수 있게 해야 함 */
+  object-fit: cover;
 }
 
 .profile-drawer {
   position: absolute;
-  bottom: 0;
   left: 0;
-  width: 100%;
-  min-height: 80px;
-  max-height: 142px;
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 36px;
-  z-index: 10;
+  width: 100%;
+  max-height: fit-content;
   padding: 36px 50px;
-  background-color: rgba(var(--blue-background), 0.37);
   backdrop-filter: blur(27.5px);
+  background-color: rgba(var(--blue-background), 0.37);
   border-radius: 20px;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: bottom 500ms ease-in-out;
 }
 
-.profile-drawer.on {
-  max-height: none;
-  transition: all 0.5s ease-in-out;
+.profile-drawer.open {
+  bottom: 0;
+  background-color: rgba(var(--blue-background), 0.37);
+  backdrop-filter: blur(40.5px);
 }
 
 .profile-section {
@@ -123,17 +167,25 @@ html {
 .link-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* contain으로 할 건지 cover로 할 건지 선택지 줘야 함 */
 }
 
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  opacity: 0;
+  transition: all 0.26s ease-in-out;
+}
+
+.tag-list.open {
+  margin-top: 36px;
+  opacity: 1;
 }
 
 .tag-item {
-  padding: 6px 10px;
+  overflow: hidden;
+  padding: 8px 12px;
   background-color: #fff;
   border-radius: 6px;
 }
@@ -156,4 +208,43 @@ html {
 
 .tag-item.purple {
   background-color: var(--tag-purple);
+}
+
+@media screen and (max-width: 768px) {
+  .profile-drawer {
+    padding: 24px 18px;
+  }
+
+  .profile-card::before,
+  .profile-card::after {
+    width: 80px;
+    height: 80px;
+    left: -20px;
+    top: -40px;
+  }
+
+  .profile-card::after {
+    left: auto;
+    right: -20px;
+    top: auto;
+    bottom: 0;
+  }
+
+  .link-item {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tag-list {
+    max-height: 72px;
+    overflow-y: scroll;
+  }
+
+  .profile-info a {
+    display: none;
+  }
+
+  .tag-list.open {
+    margin-top: 18px;
+  }
 }
