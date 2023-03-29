@@ -131,6 +131,16 @@ html {
   backdrop-filter: blur(40.5px);
 }
 
+.toggle-line {
+  position: relative;
+  top: -24px;
+  width: 60px;
+  height: 4px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+}
+
 .profile-section {
   display: flex;
   justify-content: space-between;
@@ -213,6 +223,11 @@ html {
 @media screen and (max-width: 768px) {
   .profile-drawer {
     padding: 24px 18px;
+  }
+
+  .toggle-line {
+    width: 50px;
+    top: -16px;
   }
 
   .profile-card::before,
