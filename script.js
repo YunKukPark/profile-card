@@ -5,7 +5,6 @@ const $tagItem = document.querySelectorAll('.tag-item');
 const setDrawerOffset = () => {
   const $tagList = document.querySelector('.tag-list');
   const tagListHeight = $tagList.clientHeight;
-  console.log('tagListHeight: ', tagListHeight);
 
   if ($profileDrawer.classList.contains('open')) {
     $profileDrawer.style.bottom = 0;
@@ -17,23 +16,12 @@ const setDrawerOffset = () => {
 const toggleProfileDrawer = () => {
   $profileDrawer.classList.toggle('open');
   $tagList.classList.toggle('open');
-  $tagItem.forEach(tag => {
-    tag.classList.toggle('open');
-  });
-  setDrawerOffset();
-};
+  $tagItem.forEach(({ classList }) => classList.toggle('open'));
 
-const fallbackBackdrop = () => {
-  const $backdrop = document.querySelector('.backdrop-layer');
-  $backdrop.style.backdropFilter = 'blur(30px)'; // fallback for browsers that doesn't support backdrop-filter
-};
-
-const onResizeWindow = () => {
   setDrawerOffset();
-  fallbackBackdrop();
 };
 
 document.addEventListener('DOMContentLoaded', setDrawerOffset);
-window.addEventListener('resize', onResizeWindow);
+window.addEventListener('resize', setDrawerOffset);
 $profileDrawer.addEventListener('click', toggleProfileDrawer);
 $profileDrawer.addEventListener('touch', toggleProfileDrawer);
