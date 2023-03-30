@@ -226,6 +226,17 @@ html {
   background-color: var(--tag-purple);
 }
 
+.add-item-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #eee;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .profile-drawer {
     padding: 24px 18px;
