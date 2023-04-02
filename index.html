@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
@@ -13,19 +14,18 @@
     <title>My Profile</title>
   </head>
   <body>
-    <div class="container">
-      <div class="backdrop">
-        <div class="backdrop-layer"></div>
-      </div>
+    <div id="profile" class="container">
+      <div class="backdrop"></div>
       <main class="profile-card">
         <div class="img-wrapper">
           <img src="./images/profile2.jpeg" alt="yunkukpark" />
         </div>
         <div class="profile-drawer">
+          <span class="toggle-line"></span>
           <section class="profile-section">
             <div class="profile-info">
-              <div class="profile-header">
-                <h1>Yunkuk Park</h1>
+              <div class="profile-name">
+                <h1>씩씩한 청경채</h1>
                 <a
                   class="profile-link"
                   href="https://www.instagram.com/seha_park._._"
@@ -34,55 +34,26 @@
                 </a>
               </div>
               <p class="introduction">
-                안녕하세요. <strong>Gracefulrain💧</strong>에서 일하는 Frontend
-                개발자 박윤국입니다 👋
+                안녕하세요. 이곳 저곳 여행을 하며 일하는 프리랜서입니다 👋
               </p>
-              <p>Frontend Developer</p>
-              <a href="mailto:a01043340999@gmail.com">a01043340999@gmail.com</a>
+              <div class="contact">
+                <a href="mailto:#">Contact 📨</a>
+                <p class="copyright">ⓒ class.wecode.co.kr</p>
+              </div>
             </div>
           </section>
 
           <ul class="tag-list">
             <li class="tag-item">HTML</li>
             <li class="tag-item">CSS</li>
-            <li class="tag-item">JavaScript</li>
-            <li class="tag-item">React</li>
-            <li class="tag-item">Redux</li>
             <li class="tag-item">TypeScript</li>
-            <li class="tag-item">Node.js</li>
-            <li class="tag-item">Express</li>
-            <li class="tag-item">MongoDB</li>
-            <li class="tag-item">MySQL</li>
-            <li class="tag-item">Git</li>
-            <li class="tag-item">GitHub</li>
-            <li class="tag-item">Figma</li>
-            <li class="tag-item">Adobe XD</li>
-            <li class="tag-item">Adobe Photoshop</li>
-            <li class="tag-item">Adobe Illustrator</li>
-            <div class="add-item-button">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 6C12.5523 6 13 6.44772 13 7V11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H13V17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17V13H7C6.44772 13 6 12.5523 6 12C6 11.4477 6.44772 11 7 11H11V7C11 6.44772 11.4477 6 12 6Z"
-                  fill="currentColor"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M5 22C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5ZM4 19C4 19.5523 4.44772 20 5 20H19C19.5523 20 20 19.5523 20 19V5C20 4.44772 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V19Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
           </ul>
         </div>
       </main>
+      <button class="download-button">이미지 다운로드</button>
     </div>
   </body>
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
+  <!-- html2canvas 라이브러리 로드 -->
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </html>

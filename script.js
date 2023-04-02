@@ -1,12 +1,9 @@
 const COLOR_LIST = ['green', 'red', 'yellow', 'blue', 'purple'];
+const $profileCard = document.querySelector('.profile-card');
 const $profileDrawer = document.querySelector('.profile-drawer');
+const $downloadButton = document.querySelector('.download-button');
 const $tagList = document.querySelector('.tag-list');
 const $tagItem = document.querySelectorAll('.tag-item');
-const $addTagButton = document.querySelector('.add-item-button');
-
-const TagItem = ({ name }) => {
-  return `<li class="tag-item">${name}</li>`;
-};
 
 const setTagColor = () => {
   $tagItem.forEach(($tag, index) => {
@@ -26,8 +23,6 @@ const setDrawerOffset = () => {
   }
 };
 
-const onClickAddTagButton = () => {};
-
 const toggleProfileDrawer = () => {
   $profileDrawer.classList.toggle('open');
   $tagList.classList.toggle('open');
@@ -41,7 +36,18 @@ const onLoaded = () => {
   setTagColor();
 };
 
-document.addEventListener('DOMContentLoaded', onLoaded);
+const onClickDownloadButton = () => {
+  console.log('Download Button Clicked');
+};
+
+// DOMContentLoaded Fallback Logic
+if (document.readyState !== 'loading') {
+  onLoaded();
+} else {
+  document.addEventListener('DOMContentLoaded', onLoaded);
+}
+
+$downloadButton.addEventListener('click', onClickDownloadButton);
 window.addEventListener('resize', setDrawerOffset);
 $profileDrawer.addEventListener('click', toggleProfileDrawer);
 $profileDrawer.addEventListener('touch', toggleProfileDrawer);
