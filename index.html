@@ -14,12 +14,10 @@
     <title>My Profile</title>
   </head>
   <body>
-    <div id="profile" class="container">
+    <div class="container">
       <div class="backdrop"></div>
-      <main class="profile-card">
-        <div class="img-wrapper">
-          <img src="./images/profile2.jpeg" alt="yunkukpark" />
-        </div>
+      <main id="profile" class="profile-card">
+        <div class="img-wrapper"></div>
         <div class="profile-drawer">
           <span class="toggle-line"></span>
           <section class="profile-section">
@@ -30,7 +28,9 @@
                   class="profile-link"
                   href="https://www.instagram.com/seha_park._._"
                   target="_blank"
-                  ><img src="./images/instagram.png" alt="instagram" />
+                >
+                  <span>seha_park._._</span>
+                  <img src="./images/instagram.png" alt="instagram" />
                 </a>
               </div>
               <p class="introduction">
@@ -42,7 +42,6 @@
               </div>
             </div>
           </section>
-
           <ul class="tag-list">
             <li class="tag-item">HTML</li>
             <li class="tag-item">CSS</li>
@@ -50,10 +49,20 @@
           </ul>
         </div>
       </main>
-      <button class="download-button">이미지 다운로드</button>
+
+      <div class="suggestion">
+        <h2>How about?</h2>
+        <p>이 프로필을 캡쳐해서 자랑해보는건 어때요?!</p>
+      </div>
     </div>
   </body>
   <script src="script.js"></script>
   <!-- html2canvas 라이브러리 로드 -->
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.js"
+    integrity="sha512-zPMZ/3MBK+R1rv6KcBFcf7rGwLnKS+xtB2OnWkAxgC6anqxlDhl/wMWtDbiYI4rgi/NrCJdXrmNGB8pIq+slJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
 </html>

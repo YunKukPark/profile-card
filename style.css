@@ -10,9 +10,10 @@
   --tag-blue: #b2d9e9;
   --tag-red: #e9aaaa;
   --tag-yellow: #e9e0aa;
+  --text-yellow: #eed4a5;
   --tag-purple: #d9b2e9;
   --tooltip-size: 30px;
-
+  --background-black: #2a282e;
   --breakpoint-tablet: 768px;
 }
 
@@ -73,6 +74,10 @@ html {
   width: 100%;
   height: auto;
   overflow: hidden;
+  background-image: url(./images/profile2.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .img-wrapper img {
@@ -166,15 +171,17 @@ html {
 
 .profile-link {
   display: flex;
+  gap: 4px;
   align-items: center;
-  width: 30px;
-  height: 30px;
+}
+
+.profile-link span {
+  font-size: 12px;
 }
 
 .profile-link img {
-  width: 100%;
-  height: 100%;
-  /* contain으로 할 건지 cover로 할 건지 선택지 줘야 함 */
+  width: 30px;
+  height: 30px;
 }
 
 .tag-list {
@@ -237,6 +244,11 @@ html {
     margin-bottom: 8px;
   }
 
+  .profile-link img {
+    width: 24px;
+    height: 24px;
+  }
+
   .introduction {
     font-size: 12px;
     margin-bottom: 4px;
@@ -282,7 +294,6 @@ html {
   }
 
   .profile-link {
-    width: 28px;
     height: 28px;
   }
 
@@ -291,19 +302,22 @@ html {
   }
 }
 
-.download-button {
-  position: fixed;
-  bottom: 5%;
-  right: 5%;
-  padding: 12px 16px;
-  border-radius: 8px;
-  background-color: #000;
-  color: #fff;
-  font-weight: 700;
+.suggestion {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 12px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--background-black);
+  color: #fff;
+}
+
+.suggestion h2 {
+  color: var(--text-yellow);
 }
 
 .contact {

@@ -1,7 +1,10 @@
+// var htmlToImage = require('html-to-image');
+
 const COLOR_LIST = ['green', 'red', 'yellow', 'blue', 'purple'];
 const $profileCard = document.querySelector('.profile-card');
 const $profileDrawer = document.querySelector('.profile-drawer');
 const $downloadButton = document.querySelector('.download-button');
+const $screenshot = document.querySelector('#profile');
 const $tagList = document.querySelector('.tag-list');
 const $tagItem = document.querySelectorAll('.tag-item');
 
@@ -36,10 +39,6 @@ const onLoaded = () => {
   setTagColor();
 };
 
-const onClickDownloadButton = () => {
-  console.log('Download Button Clicked');
-};
-
 // DOMContentLoaded Fallback Logic
 if (document.readyState !== 'loading') {
   onLoaded();
@@ -47,7 +46,6 @@ if (document.readyState !== 'loading') {
   document.addEventListener('DOMContentLoaded', onLoaded);
 }
 
-$downloadButton.addEventListener('click', onClickDownloadButton);
 window.addEventListener('resize', setDrawerOffset);
 $profileDrawer.addEventListener('click', toggleProfileDrawer);
 $profileDrawer.addEventListener('touch', toggleProfileDrawer);
